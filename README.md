@@ -1,4 +1,2 @@
-register-app
-<br>
-Test93
+This a small project for CICD
 
