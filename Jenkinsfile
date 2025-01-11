@@ -29,15 +29,15 @@ pipeline {
                  sh "mvn test"
            }
        }
-       stage("SonarQube Analysis"){
-        steps {
-            script {
-                withSonarEnv(credentialsId: 'jenkins-sonarqube-token'){
-                    sh "mvn sonar:sonar"
+       stages {
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') { // 'SonarQube' should match the name of the server configured in Jenkins
+                    sh 'sonar-scanner'
                 }
             }
         }
-       }
+    }
 
     }
 
