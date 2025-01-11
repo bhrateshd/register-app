@@ -4,41 +4,37 @@ pipeline {
         jdk 'Java17'
         maven 'Maven3'
     }
-    stages{
-        stage("Cleanup Workspace"){
-                steps {
+    stages {
+        stage("Cleanup Workspace") {
+            steps {
                 cleanWs()
-                }
+            }
         }
 
-        stage("Checkout from SCM"){
-                steps {
-                    git branch: 'master', credentialsId: 'github', url: 'https://github.com/bhrateshd/register-app'
-                }
+        stage("Checkout from SCM") {
+            steps {
+                git branch: 'master', credentialsId: 'github', url: 'https://github.com/bhrateshd/register-app'
+            }
         }
 
-        stage("Build Application"){
+        stage("Build Application") {
             steps {
                 sh "mvn clean package"
             }
+        }
 
-       }
-
-       stage("Test Application"){
-           steps {
-                 sh "mvn test"
-           }
-       }
-       stages {
-        stage('SonarQube Analysis') {
+        stage("Test Application") {
             steps {
-                withSonarQubeEnv('SonarQube') { // 'SonarQube' should match the name of the server configured in Jenkins
+                sh "mvn test"
+            }
+        }
+
+        stage("SonarQube Analysis") {
+            steps {
+                withSonarQubeEnv('SonarQube') { // 'SonarQube' should match the configured name in Jenkins
                     sh 'sonar-scanner'
                 }
             }
         }
     }
-
-    }
-
 }
