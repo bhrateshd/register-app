@@ -10,35 +10,34 @@
       font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      background: linear-gradient(to right, #ff7e5f, #feb47b);
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
+      height: 100vh;
       color: #fff;
     }
 
     .container {
       background: #ffffff;
       color: #333;
-      width: 100%;
-      max-width: 450px;
-      padding: 30px;
+      width: 600px;
+      padding: 40px;
       border-radius: 15px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
       text-align: center;
     }
 
     .container h1 {
-      font-size: 24px;
-      color: #6a11cb;
-      margin-bottom: 15px;
+      font-size: 32px;
+      color: #ff7e5f;
+      margin-bottom: 20px;
     }
 
     .container p {
-      font-size: 14px;
+      font-size: 16px;
       color: #555;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
     label {
@@ -51,43 +50,43 @@
     input[type="text"],
     input[type="password"] {
       width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border: 2px solid #6a11cb;
-      border-radius: 5px;
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 2px solid #ff7e5f;
+      border-radius: 8px;
       box-sizing: border-box;
       transition: border-color 0.3s;
     }
 
     input:focus {
-      border-color: #2575fc;
+      border-color: #feb47b;
       outline: none;
     }
 
     button {
       width: 100%;
-      padding: 12px;
-      background: linear-gradient(90deg, #ff6a00, #ee0979);
+      padding: 15px;
+      background: linear-gradient(90deg, #43cea2, #185a9d);
       color: #fff;
       border: none;
-      border-radius: 5px;
-      font-size: 16px;
+      border-radius: 8px;
+      font-size: 18px;
       font-weight: bold;
       cursor: pointer;
-      margin-top: 10px;
+      margin-top: 15px;
       transition: background 0.3s;
     }
 
     button:hover {
-      background: linear-gradient(90deg, #ee0979, #ff6a00);
+      background: linear-gradient(90deg, #185a9d, #43cea2);
     }
 
     .signin {
-      margin-top: 15px;
+      margin-top: 20px;
     }
 
     .signin a {
-      color: #2575fc;
+      color: #185a9d;
       text-decoration: none;
       font-weight: bold;
     }
@@ -99,30 +98,33 @@
     hr {
       border: none;
       border-top: 2px solid #f0f0f0;
-      margin: 20px 0;
+      margin: 30px 0;
     }
 
     .thank-you {
-      margin-top: 20px;
-      background: linear-gradient(90deg, #00c9ff, #92fe9d);
+      margin-top: 30px;
+      background: linear-gradient(90deg, #ff512f, #f09819);
       color: #fff;
-      padding: 10px;
-      border-radius: 5px;
+      padding: 15px;
+      border-radius: 8px;
       font-size: 18px;
+      font-weight: bold;
     }
 
-    /* Responsive Design */
-    @media (max-width: 480px) {
-      .container {
-        padding: 20px;
+    /* Desktop-Only Styles */
+    @media (min-width: 1024px) {
+      body {
+        padding: 40px;
       }
 
-      .container h1 {
-        font-size: 20px;
+      .container {
+        max-width: 700px;
       }
 
       button {
-        font-size: 14px;
+        max-width: 300px;
+        margin: 20px auto 0;
+        display: block;
       }
     }
   </style>
@@ -150,7 +152,7 @@
       <label for="psw-repeat">Repeat Password</label>
       <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
 
-      <p>By creating an account, you agree to our <a href="#" style="color: #ff6a00;">Terms & Privacy</a>.</p>
+      <p>By creating an account, you agree to our <a href="#" style="color: #185a9d;">Terms & Privacy</a>.</p>
       <button type="submit" class="registerbtn">Register</button>
     </form>
 
