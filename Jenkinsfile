@@ -4,6 +4,7 @@ pipeline {
         jdk 'Java17'
         maven 'Maven3'
     }
+<<<<<<< HEAD
     environment {
 	    APP_NAME = "register-app-pipeline"
             RELEASE = "1.0.0"
@@ -16,23 +17,41 @@ pipeline {
     stages{
         stage("Cleanup Workspace"){
                 steps {
+=======
+    stages {
+        stage("Cleanup Workspace") {
+            steps {
+>>>>>>> 8bffb3fefdefb4dcebbf499b7b7f652743a9a353
                 cleanWs()
-                }
+            }
         }
 
+<<<<<<< HEAD
         stage("Checkout from SCM"){
                 steps {
                     git branch: 'main', credentialsId: 'github', url: 'https://github.com/Ashfaque-9x/register-app'
                 }
+=======
+        stage("Checkout from SCM") {
+            steps {
+                git branch: 'master', credentialsId: 'github', url: 'https://github.com/bhrateshd/register-app'
+            }
+>>>>>>> 8bffb3fefdefb4dcebbf499b7b7f652743a9a353
         }
 
-        stage("Build Application"){
+        stage("Build Application") {
             steps {
                 sh "mvn clean package"
             }
+        }
 
-       }
+        stage("Test Application") {
+            steps {
+                sh "mvn test"
+            }
+        }
 
+<<<<<<< HEAD
        stage("Test Application"){
            steps {
                  sh "mvn test"
@@ -52,3 +71,14 @@ pipeline {
     }
 
 }
+=======
+        stage("SonarQube Analysis") {
+            steps {
+                withSonarQubeEnv('SonarQube') { // 'SonarQube' should match the configured name in Jenkins
+                    sh 'sonar-scanner'
+                }
+            }
+        }
+    }
+}
+>>>>>>> 8bffb3fefdefb4dcebbf499b7b7f652743a9a353
